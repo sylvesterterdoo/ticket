@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ticket Tables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Seat#</th>
+      <th>Address</th>
+      <th>Price paid</th>
+      <th>Email address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ticket_tables.each do |ticket_table| %>
+      <tr>
+        <td><%= ticket_table.name %></td>
+        <td><%= ticket_table.seat_id_seq %></td>
+        <td><%= ticket_table.address %></td>
+        <td><%= ticket_table.price_paid %></td>
+        <td><%= ticket_table.email_address %></td>
+        <td><%= link_to 'Show', ticket_table %></td>
+        <td><%= link_to 'Edit', edit_ticket_table_path(ticket_table) %></td>
+        <td><%= link_to 'Destroy', ticket_table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ticket Table', new_ticket_table_path %>
